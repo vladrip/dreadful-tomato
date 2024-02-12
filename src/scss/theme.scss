@@ -1,0 +1,27 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$color-primary: mat.define-palette(mat.$red-palette, 800, 700, 900);
+$color-accent: mat.define-palette(mat.$red-palette, 800, 700, 900);
+$color-warn: mat.define-palette(mat.$deep-orange-palette);
+
+$tomato-theme: mat.define-dark-theme((
+  color: (
+    primary: $color-primary,
+    accent: $color-accent,
+    warn: $color-warn,
+  )
+));
+
+@include mat.all-component-themes($tomato-theme);
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

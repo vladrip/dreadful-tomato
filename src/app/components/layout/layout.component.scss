@@ -1,0 +1,20 @@
+@import "./scss/variables";
+
+.main-header {
+  height: $main-header-height;
+  background: black;
+  position: fixed;
+  top: 0;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: $main-header-height 10% 0;
+  min-height: calc(100vh - $main-header-height - $main-footer-min-height);
+}
+
+.main-footer {
+  min-height: $main-footer-min-height;
+  background: black;
+}
