@@ -1,11 +1,12 @@
-@import "./scss/variables";
-@import "./scss/colors";
+@import "variables";
+@import "colors";
 
 .main-header {
   min-height: 0;
   position: fixed;
   top: 0;
   padding: 0 10%;
+  z-index: 100;
 
   mat-toolbar-row:first-child {
     height: $header-row1-height !important;
@@ -13,6 +14,12 @@
 
     .spacer {
       flex: 1 1 auto;
+    }
+
+    button:not(.free-trial-btn) {
+      height: 100%;
+      padding: 0 1rem;
+      border-radius: 0;
     }
   }
 }
@@ -31,8 +38,6 @@
 }
 
 .horizontal-bordered-btn {
-  padding: 0 0.8rem;
-  border-radius: 0;
   border-left: 2px solid $btn-border-gray;
   border-right: 2px solid $btn-border-gray;
 }
@@ -46,16 +51,11 @@
   .footer-links {
     display: flex;
     gap: 1rem;
-
-    a {
-      text-decoration: none;
-      color: $black-palette-contrast;
-    }
   }
 
   .copyright {
     margin: 0;
     font-size: small;
-    color: $btn-border-gray;
+    color: dimgray;
   }
 }

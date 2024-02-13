@@ -3,15 +3,15 @@
 @include mat.core();
 @import "colors";
 
-$color-primary: mat.define-palette($black-palette, 100, 100, 100);
-$color-accent: mat.define-palette(mat.$red-palette, A700, 800, 900);
-$color-warn: mat.define-palette(mat.$deep-orange-palette);
+$primary-palette: mat.define-palette($black-palette, 100, 100, 100);
+$accent-palette: mat.define-palette(mat.$red-palette, A700, 800, 900);
+$warn-palette: mat.define-palette(mat.$deep-orange-palette);
 
 $tomato-theme: mat.define-dark-theme((
   color: (
-    primary: $color-primary,
-    accent: $color-accent,
-    warn: $color-warn,
+    primary: $primary-palette,
+    accent: $accent-palette,
+    warn: $warn-palette,
   )
 ));
 
