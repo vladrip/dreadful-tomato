@@ -10,6 +10,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { LayoutComponent } from "./components/layout/layout.component";
+import { NgOptimizedImage } from "@angular/common";
+import { SharedModule } from "./components/shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { LayoutComponent } from "./components/layout/layout.component";
     LayoutComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
     MatToolbar,
@@ -24,7 +27,8 @@ import { LayoutComponent } from "./components/layout/layout.component";
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    NgOptimizedImage
   ],
   providers: [
     provideAnimationsAsync()

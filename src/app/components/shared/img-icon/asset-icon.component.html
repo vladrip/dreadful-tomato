@@ -1,0 +1,5 @@
+<div [style.height.rem]="sizeRem" [style.width.rem]="sizeRem"
+     [style.margin-left.rem]="pos === 'start' ? sizeRem / 3 : 0"
+     [style.margin-right.rem]="pos === 'end' ? sizeRem / 3 : 0">
+  <img [ngSrc]="'assets/' + name + '.png'" fill="true" [alt]="name">
+</div>

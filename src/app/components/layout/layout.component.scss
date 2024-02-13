@@ -1,20 +1,61 @@
 @import "./scss/variables";
+@import "./scss/colors";
 
 .main-header {
-  height: $main-header-height;
-  background: black;
+  min-height: 0;
   position: fixed;
   top: 0;
+  padding: 0 10%;
+
+  mat-toolbar-row:first-child {
+    height: $header-row1-height !important;
+    min-height: $header-row1-height !important;
+
+    .spacer {
+      flex: 1 1 auto;
+    }
+  }
 }
 
 .content-wrapper {
   display: flex;
   flex-direction: column;
-  padding: $main-header-height 10% 0;
-  min-height: calc(100vh - $main-header-height - $main-footer-min-height);
+  padding-top: $header-row1-height;
+  min-height: calc(100vh - $header-row1-height - $main-footer-min-height);
+}
+
+.free-trial-btn {
+  margin-left: 20px;
+  padding: 0 2rem;
+  border-radius: 50px;
+}
+
+.horizontal-bordered-btn {
+  padding: 0 0.8rem;
+  border-radius: 0;
+  border-left: 2px solid $btn-border-gray;
+  border-right: 2px solid $btn-border-gray;
 }
 
 .main-footer {
   min-height: $main-footer-min-height;
-  background: black;
+  flex-direction: column;
+  gap: 0.45rem;
+  justify-content: center;
+
+  .footer-links {
+    display: flex;
+    gap: 1rem;
+
+    a {
+      text-decoration: none;
+      color: $black-palette-contrast;
+    }
+  }
+
+  .copyright {
+    margin: 0;
+    font-size: small;
+    color: $btn-border-gray;
+  }
 }

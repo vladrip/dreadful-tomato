@@ -1,0 +1,9 @@
+div {
+  display: inline-block;
+  vertical-align: middle;
+
+  img {
+    position: relative !important;
+    object-fit: contain;
+  }
+}
