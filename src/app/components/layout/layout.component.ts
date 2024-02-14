@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { MediaListType } from "@components/models/enums/MediaListType";
-import { ActivatedRoute } from "@angular/router";
+import { Component, DestroyRef, inject } from '@angular/core';
+import { ProgramType } from "@api/models/enums/ProgramType";
+import { NavigationEnd, Router } from "@angular/router";
+import { filter } from "rxjs";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-layout',
@@ -8,14 +10,22 @@ import { ActivatedRoute } from "@angular/router";
   styleUrl: './layout.component.scss'
 })
 export class LayoutComponent {
-  mediaTypeTabs: MediaListType[] = Object.values(MediaListType);
-  activeMediaTypeTab: MediaListType;
+  private readonly destroyRef = inject(DestroyRef);
+  programTypeTabs: ProgramType[] = Object.values(ProgramType);
+  activeProgramTypeTab: ProgramType;
 
-  constructor(route: ActivatedRoute) {
-    route.url.subscribe(url => {
-      const lastSegment = url[url.length - 1];
-      if (lastSegment?.path) this.activeMediaTypeTab = MediaListType[lastSegment.path.toUpperCase()];
-    });
+  constructor(router: Router) {
+    router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          const url = event.url;
+          const lastSegment = event.url.substring(url.lastIndexOf("/") + 1);
+          this.activeProgramTypeTab = ProgramType[lastSegment.toUpperCase()];
+        }
+      });
   }
-
 }

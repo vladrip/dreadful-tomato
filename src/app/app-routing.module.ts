@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from "@components/layout/layout.component";
-import { MediaListComponent } from "@components/media-list/media-list.component";
-import { MediaListType } from "@components/models/enums/MediaListType";
+import { ProgramListComponent } from "@components/program-list/program-list.component";
+import { ProgramType } from "@api/models/enums/ProgramType";
 
 const routes: Routes = [
   {
@@ -10,8 +10,8 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: '', loadComponent: () => import('@components/common/landing/landing.component').then(mod => mod.LandingComponent) },
-      { path: MediaListType.MOVIES.toLowerCase(), component: MediaListComponent },
-      { path: MediaListType.SERIES.toLowerCase(), component: MediaListComponent }
+      { path: ProgramType.MOVIES.toLowerCase(), component: ProgramListComponent },
+      { path: ProgramType.SERIES.toLowerCase(), component: ProgramListComponent }
     ]
   }
 ]

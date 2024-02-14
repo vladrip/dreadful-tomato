@@ -1,0 +1,13 @@
+@media (min-width: 1200px) {
+  :host {
+    padding: 0 5%;
+  }
+}
+
+:host {
+  margin-top: 1rem;
+
+  .title {
+    margin-left: 1rem;
+  }
+}

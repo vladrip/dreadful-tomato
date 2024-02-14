@@ -2,20 +2,20 @@
   <mat-toolbar-row>
     <img [ngSrc]="'assets/logo.png'" width="228" height="45" alt="logo" priority="true">
 
-    <button mat-flat-button *ngFor="let tab of mediaTypeTabs"
-            [color]="activeMediaTypeTab == tab ? 'accent' : 'primary'"
-            (click)="activeMediaTypeTab = tab" [routerLink]="'/' + tab.toLowerCase()">
+    <button mat-flat-button *ngFor="let tab of programTypeTabs"
+            [color]="activeProgramTypeTab == tab ? 'accent' : 'primary'"
+            (click)="activeProgramTypeTab = tab" [routerLink]="'/' + tab.toLowerCase()">
       <asset-icon [name]="'icon-' + tab.toLowerCase()"/>{{tab | titlecase}}
     </button>
 
     <span class="spacer"></span>
-    <button mat-button class="horizontal-bordered-btn">
+    <button mat-button class="left-border">
       <asset-icon name="icon-filter"/>Filter
     </button>
-    <button mat-button class="horizontal-bordered-btn">
+    <button mat-button class="left-border right-border">
       Login<asset-icon name="icon-login" pos="end"/>
     </button>
-    <button mat-flat-button color="accent" class="btn-rounded free-trial-btn">Start your free trial</button>
+    <button mat-flat-button color="accent" class="btn-rounded free-trial">Start your free trial</button>
   </mat-toolbar-row>
 </mat-toolbar>
 

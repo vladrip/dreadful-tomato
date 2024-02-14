@@ -12,15 +12,17 @@ import { MatListModule } from '@angular/material/list';
 import { LayoutComponent } from "@components/layout/layout.component";
 import { NgOptimizedImage } from "@angular/common";
 import { SharedModule } from "@components/shared/shared.module";
-import { MediaListComponent } from "@components/media-list/media-list.component";
-import { FilterRowComponent } from "@components/shared/filter-row/filter-row.component";
+import { ProgramListComponent } from "@components/program-list/program-list.component";
 import { MatTabLink, MatTabNav, MatTabNavPanel } from "@angular/material/tabs";
+import { provideHttpClient, withInterceptors } from "@angular/common/http";
+import { fakeApiInterceptor } from "@app/interceptors/fake-api.interceptor";
+import { MatProgressSpinner } from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    MediaListComponent
+    ProgramListComponent
   ],
   imports: [
     SharedModule,
@@ -33,13 +35,16 @@ import { MatTabLink, MatTabNav, MatTabNavPanel } from "@angular/material/tabs";
     MatIconModule,
     MatListModule,
     NgOptimizedImage,
-    FilterRowComponent,
     MatTabNav,
     MatTabNavPanel,
-    MatTabLink
+    MatTabLink,
+    MatProgressSpinner
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient(
+        withInterceptors([fakeApiInterceptor])
+    )
   ],
   bootstrap: [AppComponent]
 })
