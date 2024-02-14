@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 export class AssetIconComponent {
   @Input() name: string;
   @Input() pos: 'start' | 'end' = 'start';
-  @Input() sizeRem: number = 1.2;
+  @Input() sizeRem: number = 1.25;
 }

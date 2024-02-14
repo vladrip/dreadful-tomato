@@ -9,14 +9,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { LayoutComponent } from "./components/layout/layout.component";
+import { LayoutComponent } from "@components/layout/layout.component";
 import { NgOptimizedImage } from "@angular/common";
-import { SharedModule } from "./components/shared/shared.module";
+import { SharedModule } from "@components/shared/shared.module";
+import { MediaListComponent } from "@components/media-list/media-list.component";
+import { FilterRowComponent } from "@components/shared/filter-row/filter-row.component";
+import { MatTabLink, MatTabNav, MatTabNavPanel } from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    MediaListComponent
   ],
   imports: [
     SharedModule,
@@ -28,7 +32,11 @@ import { SharedModule } from "./components/shared/shared.module";
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    FilterRowComponent,
+    MatTabNav,
+    MatTabNavPanel,
+    MatTabLink
   ],
   providers: [
     provideAnimationsAsync()
