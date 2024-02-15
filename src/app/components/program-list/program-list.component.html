@@ -1,8 +1,25 @@
 <h2 class="title">Popular {{programType | titlecase}}</h2>
 <mat-spinner color="accent" *ngIf="loading"/>
 
-<ng-container *ngIf="!loading">
-  im
+<div *ngIf="!loading">
+  <div class="flex-row">
+    <div class="col" *ngFor="let program of programPage.entries">
+      <div class="program-card">
+        <img [ngSrc]="program.posterUrl" fill="true" [alt]="program.title">
+
+        <div class="program-info-overlay">
+          <h4>{{program.title}}</h4>
+          <div class="release-year">
+            <mat-icon color="accent">calendar_month</mat-icon>
+            <h5>{{program.releaseYear}}</h5>
+          </div>
+          <p>{{program.description}}</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <mat-paginator [pageSize]="PROGRAM_PAGE_SIZE" [hidePageSize]="true" [pageIndex]="programPage.number"
-                 [length]="programPage.total" (page)="onPageChanged($event)"/>
-</ng-container>
+                 [length]="programPage.total" (page)="onPageChanged($event)" style="margin-top: 20px"/>
+</div>

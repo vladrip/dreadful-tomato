@@ -2,11 +2,11 @@ import { ProgramType, programTypeOf } from "@apiModels/enums/ProgramType";
 import { ProgramApiItem } from "@apiModels/ProgramApiItem";
 
 export class ProgramItem {
-  title: string = '';
-  description: string = '';
+  title: string;
+  description: string;
   programType: ProgramType;
-  posterUrl: string = '';
-  releaseYear: number = undefined;
+  posterUrl: string;
+  releaseYear: number;
 
   static ofApiItem(apiItem: ProgramApiItem): ProgramItem {
     return {

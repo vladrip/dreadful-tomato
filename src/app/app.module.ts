@@ -18,6 +18,7 @@ import { provideHttpClient, withInterceptors } from "@angular/common/http";
 import { mockApiInterceptor } from "@app/interceptors/mock-api.interceptor";
 import { MatProgressSpinner } from "@angular/material/progress-spinner";
 import { MatPaginator } from "@angular/material/paginator";
+import { MatCard, MatCardImage } from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { MatPaginator } from "@angular/material/paginator";
     MatTabNavPanel,
     MatTabLink,
     MatProgressSpinner,
-    MatPaginator
+    MatPaginator,
+    MatCard,
+    MatCardImage
   ],
   providers: [
     provideAnimationsAsync(),

@@ -1,13 +1,108 @@
-@media (min-width: 1200px) {
-  :host {
-    padding: 0 5%;
-  }
-}
-
 :host {
   margin-top: 1rem;
 
+  @media (min-width: 1200px) {
+    padding: 0 5%;
+  }
+
   .title {
-    margin-left: 1rem;
+    margin: 10px 5px;
+  }
+
+  .flex-row {
+    display: flex;
+    flex-wrap: wrap;
+
+    .col {
+      flex: 20%;
+      width: 20%;
+    }
+  }
+
+  $card-border-radius: 5px;
+
+  .program-card {
+    position: relative;
+    margin: 4px;
+    height: 320px;
+
+    img {
+      position: relative !important;
+      object-fit: cover;
+      border-radius: $card-border-radius;
+    }
+
+    .program-info-overlay {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      border-bottom-left-radius: $card-border-radius;
+      border-bottom-right-radius: $card-border-radius;
+      overflow: hidden;
+      height: 3rem;
+      transition: height 0.25s ease-out;
+
+      h4 {
+        padding: 1rem 0.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+      }
+
+      .release-year {
+        visibility: hidden;
+        display: flex;
+        margin: 0.3rem 0.5rem;
+        text-align: center;
+
+        h5 {
+          margin: 0;
+          line-height: 1.5;
+        }
+
+        mat-icon {
+          font-size: 20px;
+          width: 20px;
+          height: 20px;
+          margin-right: 0.5rem;
+        }
+      }
+
+      p {
+        visibility: hidden;
+        margin: 0 0.5rem;
+        color: darkgray;
+        font-size: small;
+
+        line-height: 1rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 10;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &:hover {
+      .program-info-overlay {
+        height: 200px;
+        transition: height 0.5s ease;
+
+        h4 {
+          padding: 1rem 0.5rem 0;
+          white-space: pre-wrap;
+        }
+
+        .release-year {
+          visibility: visible;
+        }
+
+        p {
+          visibility: visible;
+        }
+      }
+    }
   }
 }

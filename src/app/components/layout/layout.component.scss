@@ -2,17 +2,15 @@
 @import "theme";
 @import "variables";
 
-@media (min-width: 1200px) {
-  .main-header {
-    padding: 0 5%;
-  }
-}
-
 .main-header {
   min-height: 0;
   position: fixed;
   top: 0;
   z-index: 100;
+
+  @media (min-width: 1200px) {
+    padding: 0 5%;
+  }
 
   mat-toolbar-row:first-child {
     height: $header-row1-height !important;
@@ -20,6 +18,10 @@
 
     img:first-child {
       margin-right: 1rem;
+
+      @media (max-width: 700px) {
+        display: none;
+      }
     }
 
     .spacer {
@@ -31,12 +33,19 @@
         height: 100%;
         padding: 0 1rem;
         border-radius: 0;
+
+        @media (max-width: 900px) {
+          span {
+            display: none;
+          }
+        }
       }
 
       &.free-trial {
         margin-left: 20px;
         padding: 0 2rem;
         border-radius: 50px;
+        white-space: pre-wrap;
       }
 
       &.left-border {

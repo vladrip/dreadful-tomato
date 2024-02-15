@@ -11,8 +11,16 @@ $tomato-theme: mat.define-dark-theme((
   color: (
     primary: $primary-palette,
     accent: $accent-palette,
-    warn: $warn-palette,
+    warn: $warn-palette
   )
 ));
+
+//set background color for tomato-theme
+$background-color: #181818;
+$palette-color : map-get($tomato-theme, color);
+$background: map-get($palette-color, background);
+$background: map_merge($background, (background: $background-color));
+$palette-color: map_merge($palette-color, (background: $background));
+$tomato-theme: map_merge($tomato-theme, (color: $palette-color));
 
 @include mat.all-component-themes($tomato-theme);

@@ -1,9 +1,17 @@
-div {
-  display: inline-block;
-  vertical-align: middle;
+:host {
+  div {
+    display: inline-block;
+    vertical-align: middle;
 
-  img {
-    position: relative !important;
-    object-fit: contain;
+    img {
+      position: relative !important;
+      object-fit: contain;
+    }
+  }
+
+  @media (max-width: 900px) {
+    &.responsive > div {
+      margin: 0 !important;
+    }
   }
 }
