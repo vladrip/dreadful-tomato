@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgOptimizedImage } from "@angular/common";
 import { RouterLink } from "@angular/router";
+import { ProgramType } from "@apiModels/enums/ProgramType";
 
 @Component({
   selector: 'app-landing',
@@ -14,4 +15,5 @@ import { RouterLink } from "@angular/router";
 })
 export class LandingComponent {
 
+  protected readonly ProgramType = ProgramType;
 }

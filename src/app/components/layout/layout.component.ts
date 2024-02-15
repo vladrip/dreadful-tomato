@@ -1,5 +1,5 @@
 import { Component, DestroyRef, inject } from '@angular/core';
-import { ProgramType } from "@api/models/enums/ProgramType";
+import { ProgramType, programTypeOf } from "@api/models/enums/ProgramType";
 import { NavigationEnd, Router } from "@angular/router";
 import { filter } from "rxjs";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
@@ -24,7 +24,7 @@ export class LayoutComponent {
         if (event instanceof NavigationEnd) {
           const url = event.url;
           const lastSegment = event.url.substring(url.lastIndexOf("/") + 1);
-          this.activeProgramTypeTab = ProgramType[lastSegment.toUpperCase()];
+          this.activeProgramTypeTab = programTypeOf(lastSegment);
         }
       });
   }

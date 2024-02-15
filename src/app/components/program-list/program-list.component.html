@@ -1,2 +1,8 @@
 <h2 class="title">Popular {{programType | titlecase}}</h2>
 <mat-spinner color="accent" *ngIf="loading"/>
+
+<ng-container *ngIf="!loading">
+  im
+  <mat-paginator [pageSize]="PROGRAM_PAGE_SIZE" [hidePageSize]="true" [pageIndex]="programPage.number"
+                 [length]="programPage.total" (page)="onPageChanged($event)"/>
+</ng-container>

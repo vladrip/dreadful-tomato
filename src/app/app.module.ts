@@ -15,8 +15,9 @@ import { SharedModule } from "@components/shared/shared.module";
 import { ProgramListComponent } from "@components/program-list/program-list.component";
 import { MatTabLink, MatTabNav, MatTabNavPanel } from "@angular/material/tabs";
 import { provideHttpClient, withInterceptors } from "@angular/common/http";
-import { fakeApiInterceptor } from "@app/interceptors/fake-api.interceptor";
+import { mockApiInterceptor } from "@app/interceptors/mock-api.interceptor";
 import { MatProgressSpinner } from "@angular/material/progress-spinner";
+import { MatPaginator } from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -38,12 +39,13 @@ import { MatProgressSpinner } from "@angular/material/progress-spinner";
     MatTabNav,
     MatTabNavPanel,
     MatTabLink,
-    MatProgressSpinner
+    MatProgressSpinner,
+    MatPaginator
   ],
   providers: [
     provideAnimationsAsync(),
     provideHttpClient(
-        withInterceptors([fakeApiInterceptor])
+        withInterceptors([mockApiInterceptor])
     )
   ],
   bootstrap: [AppComponent]

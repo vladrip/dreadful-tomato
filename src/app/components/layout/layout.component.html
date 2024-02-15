@@ -1,6 +1,8 @@
 <mat-toolbar class="main-header" color="primary">
   <mat-toolbar-row>
-    <img [ngSrc]="'assets/logo.png'" width="228" height="45" alt="logo" priority="true">
+    <a routerLink="/">
+      <img [ngSrc]="'assets/logo.png'" width="228" height="45" alt="logo" priority="true">
+    </a>
 
     <button mat-flat-button *ngFor="let tab of programTypeTabs"
             [color]="activeProgramTypeTab == tab ? 'accent' : 'primary'"
