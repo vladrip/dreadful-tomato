@@ -24,6 +24,6 @@
     </div>
   </div>
 
-  <mat-paginator [pageSize]="PROGRAM_PAGE_SIZE" [hidePageSize]="true" [pageIndex]="programPage.number"
-                 [length]="programPage.total" (page)="onPageChanged($event)" style="margin-top: 20px"/>
+  <app-paginator [pageSize]="PROGRAM_PAGE_SIZE" [total]="programPage.total" style="margin: 20px 0"
+                 [pageIndex]="programPage.index" (pageIndexChange)="onPageChanged($event)"/>
 </div>

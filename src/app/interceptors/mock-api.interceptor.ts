@@ -54,7 +54,7 @@ function getPrograms(params: HttpParams) {
         .slice(firstElementIndex, firstElementIndex + pageable.size)
         .map(programApiItem => ProgramItem.ofApiItem(programApiItem));
 
-      const page: Page<ProgramItem> = {entries, number: pageable.page, total: filteredPrograms.length};
+      const page: Page<ProgramItem> = {entries, index: pageable.page, total: filteredPrograms.length};
       return ok(page);
     }));
 }

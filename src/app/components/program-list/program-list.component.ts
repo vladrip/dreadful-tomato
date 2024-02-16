@@ -4,7 +4,6 @@ import { ActivatedRoute } from "@angular/router";
 import { ProgramListHttpService } from "@api/services/program-list-http.service";
 import { debounceTime, finalize, skip } from "rxjs";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { PageEvent } from "@angular/material/paginator";
 import { Pageable } from "@apiModels/Pageable";
 import { PROGRAM_PAGE_SIZE } from "@app/constants/Constants";
 import { ProgramListFilters } from "@apiModels/ProgramListFilters";
@@ -67,7 +66,7 @@ export class ProgramListComponent implements OnInit {
       });
   }
 
-  onPageChanged(pageEvent: PageEvent) {
-    this.loadPrograms({page: pageEvent.pageIndex, size: pageEvent.pageSize});
+  onPageChanged(pageIndex: number) {
+    this.loadPrograms({page: pageIndex, size: PROGRAM_PAGE_SIZE});
   }
 }
