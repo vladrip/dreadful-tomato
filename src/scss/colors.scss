@@ -1,3 +1,5 @@
+@use '@angular/material' as mat;
+
 $btn-border-gray: rgba(80, 80, 80, 50);
 
 $black-palette-color: #000000;
@@ -33,4 +35,4 @@ $black-palette: (
     A400: $black-palette-contrast,
     A700: $black-palette-contrast,
   )
-)
+);

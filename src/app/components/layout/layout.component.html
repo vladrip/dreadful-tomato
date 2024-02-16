@@ -11,7 +11,8 @@
     </button>
 
     <span class="spacer"></span>
-    <button mat-button class="left-border">
+    <button mat-button class="left-border" (click)="showFilters()"
+            [ngClass]="{'bottom-accent-border': filterService.filtersShowed$ | async}">
       <asset-icon class="responsive" name="icon-filter"/><span>Filter</span>
     </button>
     <button mat-button class="left-border right-border">

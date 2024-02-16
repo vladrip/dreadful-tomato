@@ -3,6 +3,7 @@ import { ProgramType, programTypeOf } from "@api/models/enums/ProgramType";
 import { NavigationEnd, Router } from "@angular/router";
 import { filter } from "rxjs";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { FilterService } from "@app/services/filter.service";
 
 @Component({
   selector: 'app-layout',
@@ -14,7 +15,7 @@ export class LayoutComponent {
   programTypeTabs: ProgramType[] = Object.values(ProgramType);
   activeProgramTypeTab: ProgramType;
 
-  constructor(router: Router) {
+  constructor(router: Router, protected filterService: FilterService) {
     router.events
       .pipe(
         filter(event => event instanceof NavigationEnd),
@@ -27,5 +28,9 @@ export class LayoutComponent {
           this.activeProgramTypeTab = programTypeOf(lastSegment);
         }
       });
+  }
+
+  showFilters() {
+    this.filterService.filtersShowed$.next(!this.filterService.filtersShowed$.value);
   }
 }

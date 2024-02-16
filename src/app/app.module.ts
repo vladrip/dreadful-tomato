@@ -19,12 +19,19 @@ import { mockApiInterceptor } from "@app/interceptors/mock-api.interceptor";
 import { MatProgressSpinner } from "@angular/material/progress-spinner";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatCard, MatCardImage } from "@angular/material/card";
+import { FilterRowComponent } from "@components/program-list/filter-row/filter-row.component";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInput } from "@angular/material/input";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { FormsModule } from "@angular/forms";
+import { MatRipple } from "@angular/material/core";
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    ProgramListComponent
+    ProgramListComponent,
+    FilterRowComponent
   ],
   imports: [
     SharedModule,
@@ -43,14 +50,20 @@ import { MatCard, MatCardImage } from "@angular/material/card";
     MatProgressSpinner,
     MatPaginator,
     MatCard,
-    MatCardImage
+    MatCardImage,
+    MatInput,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatRipple
   ],
   providers: [
     provideAnimationsAsync(),
     provideHttpClient(
-        withInterceptors([mockApiInterceptor])
+      withInterceptors([mockApiInterceptor])
     )
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

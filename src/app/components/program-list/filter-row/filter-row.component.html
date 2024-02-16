@@ -1,0 +1,19 @@
+<div>
+  <mat-form-field appearance="fill" color="accent" class="on-accent-bg-field" style="width: 100%">
+    <mat-icon color="accent" matIconPrefix>search</mat-icon>
+    <input matInput type="text" placeholder="Name" name="searchQuery"
+           [ngModel]="filterService.searchQuery$ | async"
+           (ngModelChange)="filterService.searchQuery$.next($event)">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" color="accent" class="on-accent-bg-field" style="width: 250px">
+    <mat-datepicker-toggle matIconPrefix [for]="yearRangePicker">
+      <mat-icon matDatepickerToggleIcon color="accent">calendar_month</mat-icon>
+    </mat-datepicker-toggle>
+    <input matInput [ngModel]="yearRangeView" placeholder="1920-1998" readonly style="cursor: inherit">
+
+    <input matInput [matDatepicker]="yearRangePicker" [matDatepickerFilter]="filterYears" style="display: none">
+    <mat-datepicker #yearRangePicker startView="multi-year" color="accent" [startAt]="dateFrom"
+                    (yearSelected)="onYearSelected($event, yearRangePicker)" panelClass="year-range-picker"/>
+  </mat-form-field>
+</div>

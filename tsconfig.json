@@ -12,6 +12,7 @@
       "@scss/*": ["scss/*"],
       "@interceptors/*": ["interceptors/*"],
       "@constants/*": ["constants/*"],
+      "@services/*": ["services/*"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

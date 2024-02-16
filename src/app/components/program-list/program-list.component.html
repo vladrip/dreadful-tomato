@@ -1,11 +1,15 @@
-<h2 class="title">Popular {{programType | titlecase}}</h2>
-<mat-spinner color="accent" *ngIf="loading"/>
+<div class="filter-row-wrapper" *ngIf="filterService.filtersShowed$ | async">
+  <app-filter-row/>
+</div>
 
+<h2 class="title">Popular {{programType | titlecase}}</h2>
+
+<mat-spinner color="accent" *ngIf="loading"/>
 <div *ngIf="!loading">
   <div class="flex-row">
     <div class="col" *ngFor="let program of programPage.entries">
       <div class="program-card">
-        <img [ngSrc]="program.posterUrl" fill="true" [alt]="program.title">
+        <img [ngSrc]="program.posterUrl" fill="true" [alt]="program.title" priority="true">
 
         <div class="program-info-overlay">
           <h4>{{program.title}}</h4>

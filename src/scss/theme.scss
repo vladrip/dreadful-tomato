@@ -3,7 +3,7 @@
 @include mat.core();
 @import "colors";
 
-$primary-palette: mat.define-palette($black-palette, 100, 100, 100);
+$primary-palette: mat.define-palette($black-palette);
 $accent-palette: mat.define-palette(mat.$red-palette, A700, 800, 900);
 $warn-palette: mat.define-palette(mat.$deep-orange-palette);
 
@@ -15,12 +15,17 @@ $tomato-theme: mat.define-dark-theme((
   )
 ));
 
-//set background color for tomato-theme
+$theme-palette: map-get($tomato-theme, color);
+
 $background-color: #181818;
-$palette-color : map-get($tomato-theme, color);
-$background: map-get($palette-color, background);
+$background: map-get($theme-palette, background);
 $background: map_merge($background, (background: $background-color));
-$palette-color: map_merge($palette-color, (background: $background));
-$tomato-theme: map_merge($tomato-theme, (color: $palette-color));
+
+$foreground-color: $black-palette-contrast;
+$foreground: map-get($theme-palette, foreground);
+$foreground: map-merge($foreground, (text: $foreground-color));
+
+$theme-palette: map_merge($theme-palette, (background: $background, foreground: $foreground));
+$tomato-theme: map_merge($tomato-theme, (color: $theme-palette));
 
 @include mat.all-component-themes($tomato-theme);
