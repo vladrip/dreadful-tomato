@@ -3,6 +3,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { AssetIconComponent } from "./img-icon/asset-icon.component";
 import { PaginatorComponent } from "@components/shared/paginator/paginator.component";
 import { MatFabButton, MatMiniFabButton } from "@angular/material/button";
+import { MatIcon } from "@angular/material/icon";
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { MatFabButton, MatMiniFabButton } from "@angular/material/button";
     CommonModule,
     NgOptimizedImage,
     MatFabButton,
-    MatMiniFabButton
+    MatMiniFabButton,
+    MatIcon
   ],
   exports: [
     AssetIconComponent,

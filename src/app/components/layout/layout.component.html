@@ -15,10 +15,13 @@
             [ngClass]="{'bottom-accent-border': filterService.filtersShowed$ | async}">
       <asset-icon class="responsive" name="icon-filter"/><span>Filter</span>
     </button>
-    <button mat-button class="left-border right-border">
+    <button mat-button class="left-border right-border" (click)="snackbarService.notImplemented()">
       <span>Login</span><asset-icon class="responsive" name="icon-login" pos="end"/>
     </button>
-    <button mat-flat-button color="accent" class="btn-rounded free-trial">Start your free trial</button>
+    <button mat-flat-button color="accent" class="btn-rounded free-trial"
+            (click)="snackbarService.notImplemented()">
+      Start your free trial
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
 

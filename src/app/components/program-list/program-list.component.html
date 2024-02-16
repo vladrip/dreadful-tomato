@@ -5,7 +5,9 @@
 <h2 class="title">Popular {{programType | titlecase}}</h2>
 
 <mat-spinner color="accent" *ngIf="loading"/>
+
 <div *ngIf="!loading">
+  <h4 *ngIf="!programPage || programPage.total === 0" style="color: gray">{{programType | titlecase}} not found</h4>
   <div class="flex-row">
     <div class="col" *ngFor="let program of programPage.entries">
       <div class="program-card">
@@ -24,6 +26,7 @@
     </div>
   </div>
 
-  <app-paginator [pageSize]="PROGRAM_PAGE_SIZE" [total]="programPage.total" style="margin: 20px 0"
+  <app-paginator *ngIf="programPage && programPage.total !== 0"
+                 [pageSize]="PROGRAM_PAGE_SIZE" [total]="programPage.total" style="margin: 20px 0"
                  [pageIndex]="programPage.index" (pageIndexChange)="onPageChanged($event)"/>
 </div>

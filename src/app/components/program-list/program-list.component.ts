@@ -10,6 +10,7 @@ import { ProgramListFilters } from "@apiModels/ProgramListFilters";
 import { ProgramItem } from "@app/models/ProgramItem";
 import { Page } from "@apiModels/Page";
 import { FilterService } from "@app/services/filter.service";
+import { SnackbarService } from "@app/services/snackbar.service";
 
 @Component({
   selector: 'app-program-list',
@@ -25,7 +26,8 @@ export class ProgramListComponent implements OnInit {
 
   constructor(route: ActivatedRoute,
               private programListService: ProgramListHttpService,
-              protected filterService: FilterService) {
+              protected filterService: FilterService,
+              private snackbarService: SnackbarService) {
 
     route.url.subscribe(url => {
       const lastSegment = url[url.length - 1];
@@ -39,14 +41,14 @@ export class ProgramListComponent implements OnInit {
       .pipe(skip(1), debounceTime(500), takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: () => this.loadPrograms({page: 0, size: PROGRAM_PAGE_SIZE}),
-        error: err => console.error(err)
+        error: err => this.snackbarService.error(err.message)
       });
 
     this.filterService.releaseDateRange$
       .pipe(skip(1), takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: () => this.loadPrograms({page: 0, size: PROGRAM_PAGE_SIZE}),
-        error: err => console.error(err)
+        error: err => this.snackbarService.error(err.message)
       });
   }
 
@@ -62,7 +64,7 @@ export class ProgramListComponent implements OnInit {
         next: programPage => {
           this.programPage = programPage;
         },
-        error: err => console.error(err) //TODO: replace with material snackbars
+        error: err => this.snackbarService.error(err.message)
       });
   }
 

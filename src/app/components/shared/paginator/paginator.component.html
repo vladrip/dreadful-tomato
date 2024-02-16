@@ -1,9 +1,13 @@
-<button mat-mini-fab class="indicator" [disabled]="pageIndex === 0" (click)="prevPage()"><</button>
+<button mat-mini-fab class="indicator" [disabled]="pageIndex === 0" (click)="prevPage()">
+  <mat-icon>keyboard_arrow_left</mat-icon>
+</button>
 
 <button *ngFor="let i of indexesOfVisiblePages()"
         mat-mini-fab color="accent" class="page-button"
-        [ngClass]="{'current-page': i === pageIndex}" (click)="pageIndex = i">
+        [ngClass]="{'current-page': i === pageIndex}" (click)="pageIndexChange.emit(i)">
   {{i + 1}}
 </button>
 
-<button mat-mini-fab class="indicator" [disabled]="pageIndex === totalPages() - 1" (click)="nextPage()">></button>
+<button mat-mini-fab class="indicator" [disabled]="pageIndex === totalPages() - 1" (click)="nextPage()">
+  <mat-icon>keyboard_arrow_right</mat-icon>
+</button>

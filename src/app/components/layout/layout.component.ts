@@ -4,6 +4,7 @@ import { NavigationEnd, Router } from "@angular/router";
 import { filter } from "rxjs";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { FilterService } from "@app/services/filter.service";
+import { SnackbarService } from "@app/services/snackbar.service";
 
 @Component({
   selector: 'app-layout',
@@ -15,7 +16,7 @@ export class LayoutComponent {
   programTypeTabs: ProgramType[] = Object.values(ProgramType);
   activeProgramTypeTab: ProgramType;
 
-  constructor(router: Router, protected filterService: FilterService) {
+  constructor(router: Router, protected filterService: FilterService, protected snackbarService: SnackbarService) {
     router.events
       .pipe(
         filter(event => event instanceof NavigationEnd),

@@ -80,3 +80,13 @@ h1, h2, h4, h6 {
     display: none;
   }
 }
+
+.snack {
+  --mdc-snackbar-container-color: #2c2c2c !important;
+  --mdc-snackbar-supporting-text-color: $black-palette-contrast !important;
+  --mat-snack-bar-button-color: #b71c1c !important;
+
+  &.warn {
+    --mat-snack-bar-button-color: #ff3d00 !important;
+  }
+}
