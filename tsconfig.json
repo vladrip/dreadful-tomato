@@ -1,7 +1,19 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src",
+    "paths": {
+      "@app/*": ["app/*"],
+      "@env/*": ["environments/*"],
+      "@components/*": ["app/components/*"],
+      "@api/*": ["app/api/*"],
+      "@apiModels/*": ["app/api/models/*"],
+      "@shared/*": ["app/shared/*"],
+      "@scss/*": ["scss/*"],
+      "@interceptors/*": ["interceptors/*"],
+      "@constants/*": ["constants/*"],
+      "@services/*": ["services/*"]
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -10,12 +22,12 @@
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
+    "target": "ES2022",
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "es2018",
+      "ES2022",
       "dom"
     ]
   },

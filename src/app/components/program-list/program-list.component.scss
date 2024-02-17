@@ -1,0 +1,132 @@
+@import "variables";
+
+:host {
+  & > .title, & > div {
+    padding: 0 1%;
+
+    @media (min-width: 1200px) {
+      padding: 0 5%;
+    }
+  }
+
+  & > .title {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .flex-row {
+    display: flex;
+    flex-wrap: wrap;
+
+    .col {
+      width: 20%;
+
+      @media (max-width: 1100px) {
+        width: 25%;
+      }
+
+      @media (max-width: 800px) {
+        width: 33.3%;
+      }
+
+      @media (max-width: 600px) {
+        width: 50%;
+      }
+    }
+  }
+
+  & > mat-spinner {
+    margin: 20vh auto 0;
+  }
+
+  $card-border-radius: 5px;
+  .program-card {
+    position: relative;
+    margin: 4px;
+    height: 320px;
+
+    img {
+      position: relative !important;
+      object-fit: cover;
+      border-radius: $card-border-radius;
+    }
+
+    .program-info-overlay {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      border-bottom-left-radius: $card-border-radius;
+      border-bottom-right-radius: $card-border-radius;
+      overflow: hidden;
+      height: 3rem;
+      transition: height 0.25s ease-out;
+
+      h4 {
+        padding: 1rem 0.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+      }
+
+      .release-year {
+        visibility: hidden;
+        display: flex;
+        margin: 0.3rem 0.5rem;
+        text-align: center;
+
+        h5 {
+          margin: 0;
+          line-height: 1.5;
+        }
+
+        mat-icon {
+          font-size: 20px;
+          width: 20px;
+          height: 20px;
+          margin-right: 0.5rem;
+        }
+      }
+
+      p {
+        visibility: hidden;
+        margin: 0 0.5rem;
+        color: darkgray;
+        font-size: small;
+
+        line-height: 1rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 10;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &:hover {
+      .program-info-overlay {
+        height: 230px;
+        transition: height 0.5s ease;
+
+        h4 {
+          padding: 1rem 0.5rem 0;
+          white-space: pre-wrap;
+        }
+
+        .release-year {
+          visibility: visible;
+        }
+
+        p {
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  .filter-row-wrapper {
+    height: $header-height;
+    padding: 0;
+  }
+}

@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  .page-button {
+    opacity: 75%;
+
+    &.current-page {
+      opacity: 100%;
+    }
+  }
+
+  .indicator {
+    color: whitesmoke;
+    background-color: transparent;
+    box-shadow: transparent;
+  }
+}

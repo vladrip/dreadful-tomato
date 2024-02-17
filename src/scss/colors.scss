@@ -1,0 +1,38 @@
+@use '@angular/material' as mat;
+
+$btn-border-gray: rgba(80, 80, 80, 50);
+
+$black-palette-color: #000000;
+$black-palette-contrast: #e8e8e8;
+$black-palette: (
+  50: $black-palette-color,
+  100: $black-palette-color,
+  200: $black-palette-color,
+  300: $black-palette-color,
+  400: $black-palette-color,
+  500: $black-palette-color,
+  600: $black-palette-color,
+  700: $black-palette-color,
+  800: $black-palette-color,
+  900: $black-palette-color,
+  A100: $black-palette-color,
+  A200: $black-palette-color,
+  A400: $black-palette-color,
+  A700: $black-palette-color,
+  contrast: (
+    50: $black-palette-contrast,
+    100: $black-palette-contrast,
+    200: $black-palette-contrast,
+    300: $black-palette-contrast,
+    400: $black-palette-contrast,
+    500: $black-palette-contrast,
+    600: $black-palette-contrast,
+    700: $black-palette-contrast,
+    800: $black-palette-contrast,
+    900: $black-palette-contrast,
+    A100: $black-palette-contrast,
+    A200: $black-palette-contrast,
+    A400: $black-palette-contrast,
+    A700: $black-palette-contrast,
+  )
+);

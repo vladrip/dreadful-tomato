@@ -20,15 +20,23 @@
             "outputPath": "dist/dreadful-tomato",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [],
-            "scripts": []
+            "styles": [
+              "src/scss/theme.scss",
+              "src/scss/styles.scss"
+            ],
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src",
+                "src/scss"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -41,7 +49,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -59,33 +66,54 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dreadful-tomato:build"
+            "buildTarget": "dreadful-tomato:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "dreadful-tomato:build:production"
+              "buildTarget": "dreadful-tomato:build:production"
+            },
+            "development": {
+              "buildTarget": "dreadful-tomato:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [],
-            "scripts": []
+            "styles": [
+              "src/scss/theme.scss",
+              "src/scss/styles.scss"
+            ],
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src",
+                "src/scss"
+              ]
+            }
           }
         },
         "lint": {
@@ -100,5 +128,7 @@
       }
     }
   },
-  "defaultProject": "dreadful-tomato"
+  "cli": {
+    "analytics": "bbb2ed17-cf7a-4c38-ae5d-7482decc3694"
+  }
 }

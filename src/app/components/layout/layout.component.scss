@@ -1,0 +1,96 @@
+@use '@angular/material' as mat;
+@import "theme";
+@import "variables";
+
+.main-header {
+  min-height: 0;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+
+  mat-toolbar-row {
+    @media (min-width: 1200px) {
+      padding: 0 5%;
+    }
+  }
+
+  mat-toolbar-row:first-child {
+    height: $header-height !important;
+    min-height: $header-height !important;
+
+    img:first-child {
+      margin-right: 1rem;
+
+      @media (max-width: 700px) {
+        display: none;
+      }
+    }
+
+    .spacer {
+      flex: 1 1 auto;
+    }
+
+    button {
+      &:not(.free-trial) {
+        height: 100%;
+        padding: 0 1rem;
+        border-radius: 0;
+
+        @media (max-width: 900px) {
+          span {
+            display: none;
+          }
+        }
+      }
+
+      &.free-trial {
+        margin-left: 20px;
+        padding: 0 2rem;
+        border-radius: 50px;
+        white-space: pre-wrap;
+      }
+
+      &.left-border {
+        border-left: 2px solid $btn-border-gray;
+      }
+
+      &.right-border {
+        border-right: 2px solid $btn-border-gray;
+      }
+
+      &.bottom-accent-border {
+        border-bottom: 3px solid mat.get-color-from-palette($accent-palette, default);
+      }
+    }
+  }
+
+  mat-toolbar-row:nth-child(2) {
+    height: 50px;
+    background-color: mat.get-color-from-palette($accent-palette, default);
+  }
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: $header-height;
+  min-height: calc(100vh - $header-height - $main-footer-min-height);
+}
+
+.main-footer {
+  min-height: $main-footer-min-height;
+  flex-direction: column;
+  gap: 0.45rem;
+  justify-content: center;
+
+  .footer-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .copyright {
+    margin: 0;
+    font-size: small;
+    color: dimgray;
+  }
+}

@@ -1,3 +1,14 @@
+# Result:
+### Landing
+![](images/result/Landing.jpeg)
+
+### Movies
+![](images/result/Movies.jpeg)
+
+### Series
+![](images/result/Series with filters.jpeg)
+
+# Task:
 # Dreadful Tomato
 
 Dreadful Tomato is a new platform to find new movies and TV shows. The main objective is to

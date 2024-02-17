@@ -1,0 +1,17 @@
+<div class="category">
+  <a [routerLink]="'/' + ProgramType.MOVIES.toLowerCase()">
+    <img [ngSrc]="'assets/movies.png'" [fill]="true" alt="movies">
+    <div class="overlay-text">
+      <h1>Movies</h1>
+    </div>
+  </a>
+</div>
+
+<div class="category">
+  <a [routerLink]="'/' + ProgramType.SERIES.toLowerCase()">
+    <img [ngSrc]="'assets/series.png'" [fill]="true" alt="series">
+    <div class="overlay-text">
+      <h1>Series</h1>
+    </div>
+  </a>
+</div>
