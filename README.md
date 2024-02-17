@@ -6,7 +6,7 @@
 ![](images/result/Movies.jpeg)
 
 ### Series
-![](images/result/Series with filters.jpeg)
+![](images/result/Series%20with%20filters.jpeg)
 
 # Task:
 # Dreadful Tomato
